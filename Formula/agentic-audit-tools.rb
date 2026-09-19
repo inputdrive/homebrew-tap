@@ -8,11 +8,12 @@ class AgenticAuditTools < Formula
   depends_on "python@3.12"
 
   def install
-    venv = libexec/"venv"
-    system Formula["python@3.12"].opt_bin/"python3", "-m", "venv", venv
-    system venv/"bin/python", "-m", "pip", "install", "--upgrade", "pip"
-    system venv/"bin/python", "-m", "pip", "install", "."
-    bin.install_symlink venv/"bin/agentic-audit-tools"
+    python_bin = (Formula["python@3.12"].opt_bin/"python3").to_s
+    venv = (libexec/"venv").to_s
+    system python_bin, "-m", "venv", venv
+    system "#{venv}/bin/python", "-m", "pip", "install", "--upgrade", "pip"
+    system "#{venv}/bin/python", "-m", "pip", "install", "."
+    bin.install_symlink "#{venv}/bin/agentic-audit-tools"
   end
 
   test do
