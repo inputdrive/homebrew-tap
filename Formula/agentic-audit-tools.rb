@@ -9,11 +9,8 @@ class AgenticAuditTools < Formula
 
   def install
     python_bin = (Formula["python@3.12"].opt_bin/"python3").to_s
-    venv = (libexec/"venv").to_s
-    system python_bin, "-m", "venv", venv
-    system "#{venv}/bin/python", "-m", "pip", "install", "--upgrade", "pip"
-    system "#{venv}/bin/python", "-m", "pip", "install", "."
-    bin.install_symlink "#{venv}/bin/agentic-audit-tools"
+    system python_bin, "-m", "pip", "install", "--no-deps", "--prefix=#{prefix}", "."
+    bin.install_symlink prefix/"bin/agentic-audit-tools"
   end
 
   test do
