@@ -2,7 +2,7 @@ class AgenticAuditTools < Formula
   desc "Read-only local audit inventory for agentic coding tools"
   homepage "https://github.com/inputdrive/spark"
   url "https://github.com/inputdrive/spark/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "cf1bcc3aa9733e36b20dd74bd2affba6e3a2e1e271c5bdefe6f77e8d46523caa"
+  sha256 "5d4248f5c2964d1b7c9dccf01706ac409d9aa0acef63724266be3281575e1d95"
   license "Apache-2.0"
 
   depends_on "python@3.12"
