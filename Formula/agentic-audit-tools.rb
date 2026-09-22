@@ -1,8 +1,8 @@
 class AgenticAuditTools < Formula
   desc "Read-only local audit inventory for agentic coding tools"
   homepage "https://github.com/inputdrive/spark"
-  url "https://github.com/inputdrive/spark/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "a62aa5ebcef4b375854f2a6119a85f5917120d8b2113217bdaf762b7847af979"
+  url "https://github.com/inputdrive/spark/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "dae640b71fcf04c64e5758d586e620c8f3647dad5af000acf72634156d7a95cd"
   license "Apache-2.0"
 
   depends_on "python@3.12"
@@ -14,6 +14,7 @@ class AgenticAuditTools < Formula
   end
 
   test do
-    system "#{bin}/agentic-audit-tools", "--help"
+    output = shell_output("#{bin}/agentic-audit-tools")
+    assert_match "\"collection_rule\"", output
   end
 end
