@@ -1,4 +1,6 @@
 class AgenticAuditTools < Formula
+  include Language::Python::Virtualenv
+
   desc "Read-only local audit inventory for agentic coding tools"
   homepage "https://github.com/inputdrive/spark"
   url "https://github.com/inputdrive/spark/archive/refs/tags/v0.2.1.tar.gz"
@@ -8,9 +10,7 @@ class AgenticAuditTools < Formula
   depends_on "python@3.12"
 
   def install
-    python_bin = (Formula["python@3.12"].opt_bin/"python3").to_s
-    system python_bin, "-m", "pip", "install", "--no-deps", "--prefix=#{prefix}", "."
-    bin.install_symlink prefix/"bin/agentic-audit-tools"
+    virtualenv_install_with_resources
   end
 
   test do
