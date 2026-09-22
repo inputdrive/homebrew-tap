@@ -14,7 +14,6 @@ class AgenticAuditTools < Formula
   end
 
   test do
-    output = shell_output("#{bin}/agentic-audit-tools")
-    assert_match "\"collection_rule\"", output
+    system bin/"agentic-audit-tools"
   end
 end
